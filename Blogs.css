@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body, html {
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body, html {
+    background-color: #f3f5ff;
+    color: #093347;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fefefe;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item a, .btn-signin {
+    text-decoration: none;
+    color: #093347;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    transition: background 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-item a:hover, .btn-signin:hover {
+    background-color: transparent;
+    border-bottom: 2px solid #057FEC;
+}
+
+.btn-signin {
+    background-color: #057FEC;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.btn-signin:hover {
+    background-color: #FE341B;
+}
+
+.header {
+    position: relative;
+    height: 100vh;
+    background: url('blogsbg.avif') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(9, 51, 71, 0.7);
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.animated-square {
+    width: 400px;
+    height: 400px;
+    background-color: #1e71ff;
+    border-radius: 50px;
+    overflow: hidden;
+    transform: translateY(100%);
+    animation: squareSlideUp 1.5s ease-out forwards;
+}
+
+.animated-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-text {
+    max-width: 50%;
+}
+
+.header-text h1 {
+    font-size: 4rem;
+    color: #E05D2D;
+    margin-bottom: 20px;
+    animation: fadeInRight 1s ease-out;
+}
+
+.header-text p {
+    font-size: 1.2rem;
+    color: #fff;
+    animation: fadeInRight 1s ease-out 0.5s both;
+}
+
+
+
+@keyframes squareSlideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@media only screen and (max-width: 768px) {
+    .navbar {
+      justify-content: space-between;
+      padding: 10px;
+    }
+  
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .hamburger {
+      width: 30px;
+      height: 3px;
+      background-color: #333;
+      position: relative;
+    }
+  
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #333;
+      transition: 0.3s;
+    }
+  
+    .hamburger::before {
+      top: -8px;
+    }
+  
+    .hamburger::after {
+      top: 8px;
+    }
+  
+    .nav-list {
+      position: fixed;
+      top: 60px;
+      left: -100%;
+      width: 100%;
+      height: calc(100% - 60px);
+      background-color: #fff;
+      flex-direction: column;
+      align-items: center;
+      transition: 0.3s;
+    }
+  
+    .nav-list.active {
+      left: 0;
+    }
+  
+    .nav-item {
+      margin: 15px 0;
+    }
+  
+    .btn-signin {
+      margin-top: 20px;
+    }
+  }
+
+.blogs-content, .policy-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #E05D2D;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.blog-card {
+    background-color: #1e71ff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 20px;
+}
+
+.blog-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.blog-excerpt {
+    font-size: 1rem;
+    color: #f0f0f0;
+    margin-bottom: 15px;
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #E05D2D;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #FE341B;
+}
+
+.policy-text {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.policy-text h2 {
+    font-size: 2rem;
+    color: #E05D2D;
+    margin: 30px 0 15px;
+}
+
+.policy-text p {
+    margin-bottom: 15px;
+}
+
+.policy-text ul, .policy-text ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.footer {
+    background-color: #002935;
+    color: #ffffff;
+    padding: 50px 0;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-column {
+    flex: 1;
+    padding: 0 20px;
+  }
+  
+  .footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .footer-column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #057FEC;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #057FEC;
+  }
+  
+  

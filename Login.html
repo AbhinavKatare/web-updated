@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-left">
+            <div class="login-toggle">
+                <button class="login-btn active" id="login-tab">Login</button>
+                <button class="signup-btn" id="signup-tab">Sign up</button>
+            </div>
+            <div class="login-form active-form" id="login-form">
+                <h1>LOGIN</h1>
+                <p>Enter the details to get to your learning searching</p>
+                <form>
+                    <label for="email">Email</label>
+                    <div class="input-field">
+                        <img src="email-icon.png" alt="Email Icon">
+                        <input type="email" id="login-email" placeholder="John@email.com">
+                    </div>
+                    <label for="password">Password</label>
+                    <div class="input-field">
+                        <img src="lock-icon.png" alt="Lock Icon">
+                        <input type="password" id="login-password" placeholder="***********">
+                        <img src="eye-icon.png" class="show-password" alt="Show Password">
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <button type="submit" class="login-submit">Login</button>
+                </form>
+                <p class="signup-text">Don't have an account? <a href="#" id="switch-to-signup">SignUp</a></p>
+            </div>
+
+            <!-- Sign-Up Form -->
+            <div class="signup-form" id="signup-form">
+                <h1>SIGN UP</h1>
+                <p>Fill in the details to create your account</p>
+                <form>
+                    <label for="signup-name">Full Name</label>
+                    <div class="input-field">
+                        <img src="user-icon.png" alt="User Icon">
+                        <input type="text" id="signup-name" placeholder="John Doe">
+                    </div>
+                    <label for="signup-email">Email</label>
+                    <div class="input-field">
+                        <img src="email-icon.png" alt="Email Icon">
+                        <input type="email" id="signup-email" placeholder="John@email.com">
+                    </div>
+                    <label for="signup-password">Password</label>
+                    <div class="input-field">
+                        <img src="lock-icon.png" alt="Lock Icon">
+                        <input type="password" id="signup-password" placeholder="***********">
+                        <img src="eye-icon.png" class="show-password" alt="Show Password">
+                    </div>
+                    <button type="submit" class="signup-submit">Sign Up</button>
+                </form>
+                <p class="login-text">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+            </div>
+        </div>
+        <div class="login-right">
+            <img src="loginpage.avif" alt="Child Graduate">
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
