@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const eventList = document.getElementById('eventList');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+    const navItems = document.querySelectorAll('.nav-item a');
+
     const events = [
         {
             title: 'lorem ipsum dot',
@@ -49,4 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     displayEvents();
+
+    menuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+    });
+
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navList.classList.remove('active');
+        });
+    });
 });
