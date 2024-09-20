@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const courseSection = document.getElementById('courses');
     const courseNavLinks = document.querySelectorAll('.course-nav a');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+    const navItems = document.querySelectorAll('.nav-item a');
 
     const courses = {
         'current-courses': [
@@ -30,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <a href="${course.link}" class="view-now-btn">View Now</a>
         `;
         
-        // Add event listener for clicking anywhere on the card
         card.addEventListener('click', function() {
             window.location.href = course.link;
         });
@@ -45,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initially show current courses
     showCourses('current-courses');
 
     courseNavLinks.forEach(link => {
@@ -55,5 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
             showCourses(courseType);
         });
     });
-});
 
+    menuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+    });
+
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navList.classList.remove('active');
+        });
+    });
+});
