@@ -157,6 +157,40 @@ body, html {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .animated-square {
+    width: 100%;
+    height: 200px;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .header-text {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .header .header-content .header-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .header-text p {
+    font-size: 1rem;
+  }
+}
+
+
 /* Events Content Styles */
 .events-content {
   max-width: 100%;
