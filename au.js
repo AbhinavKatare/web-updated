@@ -26,3 +26,19 @@ window.addEventListener('scroll', function() {
     var scale = 1 - scrollPercentage;
     square.style.transform = `scale(${Math.max(scale, 0)})`;
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+    const navItems = document.querySelectorAll('.nav-item a');
+
+    menuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+    });
+
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navList.classList.remove('active');
+        });
+    });
+});
