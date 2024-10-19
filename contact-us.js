@@ -1,80 +1,80 @@
-// Combined JavaScript for contact-us.html
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+    // Hamburger menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    menuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
     });
 
     // Form validation
     const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
 
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-            if (name === '' || email === '' || message === '') {
-                alert('Please fill in all fields.');
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
+        if (validateForm()) {
             alert('Message sent successfully!');
-            this.reset();
-        });
-    }
-
-    // Email validation function
-    function validateEmail(email) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.[^<>()[\]\.,;:\s@"]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
-
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const mobileNav = document.querySelector('.mobile-nav');
-
-    if (hamburger && mobileNav) {
-        hamburger.addEventListener('click', toggleMenu);
-    }
-
-    function toggleMenu() {
-        mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    // Responsive behavior
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            mobileNav.style.display = 'none';
+            contactForm.reset();
         }
     });
 
-    // Input label animation
-    const inputContainers = document.querySelectorAll('.input-container');
-    inputContainers.forEach(container => {
-        const input = container.querySelector('input, textarea');
-        const label = container.querySelector('label');
+    function validateForm() {
+        let isValid = true;
 
-        input.addEventListener('focus', () => {
-            label.classList.add('active');
-        });
+        if (nameInput.value.trim() === '') {
+            showError(nameInput, 'Name is required');
+            isValid = false;
+        } else {
+            removeError(nameInput);
+        }
 
-        input.addEventListener('blur', () => {
-            if (input.value === '') {
-                label.classList.remove('active');
-            }
-        });
-    });
+        if (emailInput.value.trim() === '') {
+            showError(emailInput, 'Email is required');
+            isValid = false;
+        } else if (!isValidEmail(emailInput.value)) {
+            showError(emailInput, 'Please enter a valid email');
+            isValid = false;
+        } else {
+            removeError(emailInput);
+        }
+
+        if (messageInput.value.trim() === '') {
+            showError(messageInput, 'Message is required');
+            isValid = false;
+        } else {
+            removeError(messageInput);
+        }
+
+        return isValid;
+    }
+
+    function showError(input, message) {
+        const formControl = input.parentElement;
+        formControl.classList.add('error');
+        const errorMessage = formControl.querySelector('.error-message') || document.createElement('small');
+        errorMessage.className = 'error-message';
+        errorMessage.innerText = message;
+        if (!formControl.querySelector('.error-message')) {
+            formControl.appendChild(errorMessage);
+        }
+    }
+
+    function removeError(input) {
+        const formControl = input.parentElement;
+        formControl.classList.remove('error');
+        const errorMessage = formControl.querySelector('.error-message');
+        if (errorMessage) {
+            formControl.removeChild(errorMessage);
+        }
+    }
+
+    function isValidEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
 });
+ 
