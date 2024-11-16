@@ -419,3 +419,81 @@ body, html {
   color: #057FEC;
 }
 
+@media screen and (min-width: 1440px) {
+  .about-box {
+    height: 90vh;
+  }
+
+  .curved-square {
+    width: 400px;
+    height: 450px;
+  }
+
+  .curved-square h4 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+
+  .curved-square p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+
+  .view-now-btn {
+    font-size: 1.4rem;
+    padding: 15px 30px;
+  }
+
+  .blogs-box {
+    height: 95vh;
+  }
+
+  .blogs-box h1 {
+    font-size: 6rem;
+    margin-bottom: 40px;
+  }
+
+  .blog-card {
+    width: calc(33.33% - 50px);
+    height: 380px;
+    margin: 25px;
+  }
+
+  .blog-card h5 {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .curved-square {
+    width: 500px;
+    height: 550px;
+  }
+
+  .curved-square h4 {
+    font-size: 3.2rem;
+  }
+
+  .curved-square p {
+    font-size: 1.8rem;
+  }
+
+  .view-now-btn {
+    font-size: 1.6rem;
+    padding: 20px 40px;
+  }
+
+  .blogs-box h1 {
+    font-size: 7rem;
+  }
+
+  .blog-card {
+    width: calc(33.33% - 60px);
+    height: 450px;
+    margin: 30px;
+  }
+
+  .blog-card h5 {
+    font-size: 2.6rem;
+  }
+}
